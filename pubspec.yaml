@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_otp_text_field: ^1.1.1
   get: ^4.6.6
   shared_preferences: ^2.2.2
 
@@ -25,3 +26,4 @@ flutter:
    - assets/images/image2.PNG
    - assets/images/image3.PNG
    - assets/images/image4.PNG
+   - assets/images/logo.png

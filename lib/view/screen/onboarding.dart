@@ -1,5 +1,5 @@
 import 'package:e_commerce/controller/onboardingcontroller.dart';
-import 'package:e_commerce/view/widget/onboarding/PageView.dart';
+import 'package:e_commerce/view/widget/onboarding/pageview.dart';
 import 'package:e_commerce/view/widget/onboarding/custombutton.dart';
 import 'package:e_commerce/view/widget/onboarding/dotcontroller.dart';
 import 'package:flutter/material.dart';

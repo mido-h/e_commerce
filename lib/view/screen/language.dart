@@ -19,6 +19,9 @@ class Language extends GetView<LangController> {
               "1".tr,
               style: Theme.of(context).textTheme.displayLarge,
             ),
+            SizedBox(
+              height: 10,
+            ),
             CustomButtonLang(
               buttonText: "Arabic",
               onPressed: () {

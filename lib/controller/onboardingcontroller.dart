@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/constant/routes.dart';
+import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/datasource/static/static.dart';
-import 'package:e_commerce/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +12,7 @@ abstract class OnBoardingController extends GetxController {
 class OnBoardingControllerImp extends OnBoardingController {
   int currentPage = 0;
   late PageController pageController;
+  MyServices myServices = Get.find();
 
   @override
   void onInit() {
@@ -25,6 +26,8 @@ class OnBoardingControllerImp extends OnBoardingController {
       currentPage++;
     } else {
       Get.offAllNamed(AppRoute.login);
+      myServices.sharedPreferences.setBool("Onboarding", true);
+      print(myServices.sharedPreferences.get("Onboarding").toString());
     }
 
     pageController.animateToPage(currentPage,
