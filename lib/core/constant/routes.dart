@@ -8,6 +8,10 @@ class AppRoute {
   static const String successSignUp = "/successsignup";
   static const String checkEmail = "/checkemail";
   static const String verifyCodeSignUp = "/verifycodesinup";
+  //=================================================================//
   static const String language = "/language";
   static const String onBoarding = "/onBoarding";
+  //=================================================================//
+  static const String homePage = "/homepage";
+  static const String items = "/items";
 }

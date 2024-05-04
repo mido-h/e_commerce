@@ -18,93 +18,93 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     LoginControllerImp controller = Get.find();
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            "Sign In".tr,
-            style: Theme.of(context)
-                .textTheme
-                .displayLarge!
-                .copyWith(color: AppColor.primaryColor),
-          ),
-          backgroundColor: AppColor.background,
-          elevation: 0.0,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Sign In".tr,
+          style: Theme.of(context)
+              .textTheme
+              .displayLarge!
+              .copyWith(color: AppColor.primaryColor),
         ),
-        body: WillPopScope(
-          onWillPop: exitAlert,
-          child: Container(
-            color: AppColor.background,
-            padding: const EdgeInsets.all(30),
-            child: Form(
-              key: controller.formstate,
-              child: ListView(
-                children: [
-                  LogoAuth(),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  CustomTitleAuth(
-                    title: "Welcome Back".tr,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  CustomBodyAuth(body: "Sign In body"),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  CustomTextFormField(
-                    validator: (val) {
-                      return validateInput(val!, 5, 255, "email");
+        backgroundColor: AppColor.background,
+        elevation: 0.0,
+      ),
+      body: GetBuilder<LoginControllerImp>(builder: (controller) {
+        return Container(
+          color: AppColor.background,
+          padding: const EdgeInsets.all(30),
+          child: Form(
+            key: controller.formstate,
+            child: ListView(
+              children: [
+                LogoAuth(),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomTitleAuth(
+                  title: "Welcome Back".tr,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomBodyAuth(body: "Sign In body"),
+                SizedBox(
+                  height: 50,
+                ),
+                CustomTextFormField(
+                  validator: (val) {
+                    return validateInput(val!, 5, 255, "email");
+                  },
+                  controller: controller.email,
+                  icon: Icons.mail_outline,
+                  label: "email".tr,
+                  hint: "Enter Your Email".tr,
+                ),
+                GetBuilder<LoginControllerImp>(
+                  builder: (controller) => CustomTextFormField(
+                    iconOnTap: () {
+                      controller.showPassword();
+                      print(controller.obscure);
                     },
-                    controller: controller.email,
-                    icon: Icons.mail_outline,
-                    label: "email".tr,
-                    hint: "Enter Your Email".tr,
+                    obscure: controller.obscure,
+                    controller: controller.password,
+                    icon: controller.obscure == false
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    label: "Password".tr,
+                    hint: "Enter Your password".tr,
                   ),
-                  GetBuilder<LoginControllerImp>(
-                    builder: (controller) => CustomTextFormField(
-                      iconOnTap: () {
-                        controller.showPassword();
-                        print(controller.obscure);
-                      },
-                      obscure: controller.obscure,
-                      controller: controller.password,
-                      icon: controller.obscure == false
-                          ? Icons.visibility
-                          : Icons.visibility_off,
-                      label: "Password".tr,
-                      hint: "Enter Your password".tr,
-                    ),
+                ),
+                InkWell(
+                  onTap: () => controller.goToForgetPassword(),
+                  child: Text(
+                    "Forget your password?".tr,
+                    textAlign: TextAlign.end,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
-                  InkWell(
-                    onTap: () => controller.goToForgetPassword(),
-                    child: Text(
-                      "Forget your password?".tr,
-                      textAlign: TextAlign.end,
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                  ),
-                  CustomButtonAuth(
-                    text: "Sign In".tr,
-                    onPressed: () {
-                      controller.login();
-                    },
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Don't have an acount? ".tr),
-                      CustomTextButtonAuth(
-                        text: "Sign Up".tr,
-                        onTap: () => controller.goToSignUp(),
-                      )
-                    ],
-                  )
-                ],
-              ),
+                ),
+                CustomButtonAuth(
+                  text: "Sign In".tr,
+                  onPressed: () {
+                    controller.login();
+                  },
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Don't have an acount? ".tr),
+                    CustomTextButtonAuth(
+                      text: "Sign Up".tr,
+                      onTap: () => controller.goToSignUp(),
+                    )
+                  ],
+                )
+              ],
             ),
           ),
-        ));
+        );
+      }),
+    );
   }
 }

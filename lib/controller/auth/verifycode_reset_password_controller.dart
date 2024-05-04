@@ -1,32 +1,32 @@
 import 'package:e_commerce/core/class/status_request.dart';
 import 'package:e_commerce/core/constant/routes.dart';
 import 'package:e_commerce/core/functions/handlingdata_controller.dart';
-import 'package:e_commerce/data/datasource/remote/auth/verifycode_signup_remote.dart';
-import 'package:e_commerce/view/screen/auth/forget_password/verifycode_reset_password.dart';
+import 'package:e_commerce/data/datasource/remote/auth/verifycode_reset_password_remote.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class VerifyCodeSignUpController extends GetxController {
-  checkCode();
-  goToSuccessSignUp(verifycode);
+abstract class VerifyCodeController extends GetxController {
+  goToResetPassword(verifyCode);
 }
 
-class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
-  VerifycodeRemote verifycodeRemote = VerifycodeRemote(Get.find());
-  String? email;
+class VerifyCodeControllerImp extends VerifyCodeController {
+  VerifycodeResetPasswordRemote verifycodeResetPasswordRemote =
+      VerifycodeResetPasswordRemote(Get.find());
+
   StatusRequest? statusRequest;
+  String? email;
+
   @override
-  checkCode() {}
-  @override
-  goToSuccessSignUp(verifycode) async {
+  goToResetPassword(verifyCode) async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await verifycodeRemote.postData(email!, verifycode);
+    var response =
+        await verifycodeResetPasswordRemote.postData(email!, verifyCode);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         // data.addAll(response['data']);
-        Get.offNamed(AppRoute.successSignUp);
+        Get.offNamed(AppRoute.resetPassword, arguments: {"email2": email});
       } else {
         Get.defaultDialog(
             title: "Warning", content: const Text("Verify code is incorrect"));
@@ -38,7 +38,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
 
   @override
   void onInit() {
-    email = Get.arguments["email"];
+    email = Get.arguments['email'];
     super.onInit();
   }
 

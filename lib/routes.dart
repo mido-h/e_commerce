@@ -1,25 +1,30 @@
 import 'package:e_commerce/core/constant/routes.dart';
 import 'package:e_commerce/core/middleware/my_middleware.dart';
 import 'package:e_commerce/view/screen/auth/forget_password/check_email.dart';
-import 'package:e_commerce/view/screen/auth/forget_password/forgetpassword.dart';
 import 'package:e_commerce/view/screen/auth/forget_password/resetpassword.dart';
 import 'package:e_commerce/view/screen/auth/forget_password/success_reset_password.dart';
 import 'package:e_commerce/view/screen/auth/success_signup.dart';
-import 'package:e_commerce/view/screen/auth/verifycode.dart';
+import 'package:e_commerce/view/screen/auth/forget_password/verifycode_reset_password.dart';
 import 'package:e_commerce/view/screen/auth/verifycodesignup.dart';
+import 'package:e_commerce/view/screen/home_screen.dart';
+import 'package:e_commerce/view/screen/homepage.dart';
+import 'package:e_commerce/view/screen/items.dart';
 import 'package:e_commerce/view/screen/language.dart';
 import 'package:e_commerce/view/screen/auth/login.dart';
 import 'package:e_commerce/view/screen/onboarding.dart';
 import 'package:e_commerce/view/screen/auth/signup.dart';
+import 'package:e_commerce/view/screen/test_view.dart';
 import 'package:get/get.dart';
 
 List<GetPage> routes = [
   //Auth
   GetPage(
       name: "/", page: () => const Language(), middlewares: [MyMiddleWare()]),
+  //   name: "/",
+  //   page: () => const TestView(),
+  // ),
   GetPage(name: AppRoute.login, page: () => const Login()),
   GetPage(name: AppRoute.signUp, page: () => const SignUp()),
-  GetPage(name: AppRoute.forgetPassword, page: () => const ForgetPassword()),
   GetPage(name: AppRoute.verifyCode, page: () => const VerifyCode()),
   GetPage(name: AppRoute.resetPassword, page: () => const ResetPassword()),
   GetPage(
@@ -46,4 +51,7 @@ List<GetPage> routes = [
 
   // AppRoute.language: (context) => const Language(),
   // AppRoute.onBoarding: (context) => const OnBoarding()
+
+  GetPage(name: AppRoute.homePage, page: () => const HomeScreen()),
+  GetPage(name: AppRoute.items, page: () => const Items()),
 ];
