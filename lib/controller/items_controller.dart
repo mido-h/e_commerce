@@ -3,12 +3,14 @@ import 'package:e_commerce/core/constant/routes.dart';
 import 'package:e_commerce/core/functions/handlingdata_controller.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/datasource/remote/home_remote.dart';
+import 'package:e_commerce/data/model/items_model.dart';
 import 'package:get/get.dart';
 
 abstract class ItemsController extends GetxController {
   initialData();
   //getData();
   // toCategories(int selectedCategory);
+  goToItemsDetails(ItemsModel itemsModel);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -19,6 +21,7 @@ class ItemsControllerImp extends ItemsController {
   List items = [];
   late int selectedCategory;
   late StatusRequest statusRequest;
+  // late ItemsModel itemsModel;
 
   @override
   initialData() {
@@ -31,6 +34,11 @@ class ItemsControllerImp extends ItemsController {
   changeCategory(i) {
     selectedCategory = i;
     update();
+  }
+
+  @override
+  goToItemsDetails(itemsModel) {
+    Get.toNamed(AppRoute.itemsDetails, arguments: {"itemsmodel": itemsModel});
   }
 
   @override
