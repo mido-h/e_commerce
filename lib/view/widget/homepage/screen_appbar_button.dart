@@ -1,5 +1,4 @@
 import 'package:e_commerce/controller/home_screen_controller.dart';
-import 'package:e_commerce/controller/homepage_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

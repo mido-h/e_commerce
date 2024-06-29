@@ -4,7 +4,6 @@ import 'package:e_commerce/core/functions/handlingdata_controller.dart';
 import 'package:e_commerce/data/datasource/remote/auth/signup_remote.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/dialog/dialog_route.dart';
 
 abstract class SignUpController extends GetxController {
   signUp();

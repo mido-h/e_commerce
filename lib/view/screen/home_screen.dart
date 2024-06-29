@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
     return GetBuilder<HomeScreenControllerImp>(builder: (controller) {
       return Scaffold(
         backgroundColor: Colors.grey,
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton(backgroundColor: Colors.amber,
             onPressed: () {},
             child: Icon(
               Icons.shopping_basket_outlined,

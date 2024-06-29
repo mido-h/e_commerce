@@ -2,7 +2,6 @@ import 'package:e_commerce/core/class/status_request.dart';
 import 'package:e_commerce/core/constant/routes.dart';
 import 'package:e_commerce/core/functions/handlingdata_controller.dart';
 import 'package:e_commerce/data/datasource/remote/auth/verifycode_signup_remote.dart';
-import 'package:e_commerce/view/screen/auth/forget_password/verifycode_reset_password.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

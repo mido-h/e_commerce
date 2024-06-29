@@ -3,7 +3,6 @@ import 'package:e_commerce/core/constant/routes.dart';
 import 'package:e_commerce/core/functions/handlingdata_controller.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/datasource/remote/auth/login_remote.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -41,7 +40,7 @@ class LoginControllerImp extends LoginController {
               .setString("email", response['data']['user_email']);
           myServices.sharedPreferences
               .setInt("phone", response['data']['user_phone']);
-          myServices.sharedPreferences.setString("step", '2');
+          myServices.sharedPreferences.setInt("step", 2);
           Get.offNamed(
             AppRoute.homePage,
           );
@@ -72,7 +71,7 @@ class LoginControllerImp extends LoginController {
     password = TextEditingController();
     FirebaseMessaging.instance.getToken().then((value) {
       print(value);
-      String? token = value;
+      //  String? token = value;
     });
     super.onInit();
   }

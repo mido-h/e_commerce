@@ -1,6 +1,5 @@
 import 'package:e_commerce/controller/auth/login_controller.dart';
 import 'package:e_commerce/core/constant/appcolor.dart';
-import 'package:e_commerce/core/functions/exit_alert.dart';
 import 'package:e_commerce/core/functions/validate_input.dart';
 import 'package:e_commerce/view/widget/auth/custombodyauth.dart';
 import 'package:e_commerce/view/widget/auth/custombuttonauth.dart';
@@ -16,7 +15,6 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginControllerImp controller = Get.find();
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,

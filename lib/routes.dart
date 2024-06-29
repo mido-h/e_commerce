@@ -7,14 +7,12 @@ import 'package:e_commerce/view/screen/auth/success_signup.dart';
 import 'package:e_commerce/view/screen/auth/forget_password/verifycode_reset_password.dart';
 import 'package:e_commerce/view/screen/auth/verifycodesignup.dart';
 import 'package:e_commerce/view/screen/home_screen.dart';
-import 'package:e_commerce/view/screen/homepage.dart';
 import 'package:e_commerce/view/screen/items.dart';
 import 'package:e_commerce/view/screen/items_details.dart';
 import 'package:e_commerce/view/screen/language.dart';
 import 'package:e_commerce/view/screen/auth/login.dart';
 import 'package:e_commerce/view/screen/onboarding.dart';
 import 'package:e_commerce/view/screen/auth/signup.dart';
-import 'package:e_commerce/view/screen/test_view.dart';
 import 'package:get/get.dart';
 
 List<GetPage> routes = [

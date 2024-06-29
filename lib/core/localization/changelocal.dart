@@ -9,6 +9,7 @@ class LangController extends GetxController {
   MyServices myServices = Get.find();
   Locale? language;
   ThemeData appTheme = themeEnglish;
+  
   changeLang(String langCode) {
     Locale locale = Locale(langCode);
     myServices.sharedPreferences.setString("lang", langCode);
@@ -19,6 +20,7 @@ class LangController extends GetxController {
 
   @override
   void onInit() {
+    
     String? sharedPrefLang = myServices.sharedPreferences.getString("lang");
     if (sharedPrefLang == "ar") {
       language = const Locale("ar");

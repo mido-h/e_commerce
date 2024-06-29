@@ -3,12 +3,8 @@ import 'package:e_commerce/core/localization/changelocal.dart';
 import 'package:e_commerce/core/localization/translation.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/routes.dart';
-import 'package:e_commerce/view/screen/language.dart';
-import 'package:e_commerce/view/screen/auth/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +23,8 @@ class MainApp extends StatelessWidget {
       title: 'Demo e-commerce app',
       translations: MyTranslation(),
       locale: langcontroller.language,
-      theme: langcontroller.appTheme,
+      theme: langcontroller.appTheme.copyWith(useMaterial3: false),
+      //theme: ThemeData(useMaterial3: false),
       // myServices.sharedPreferences.get("lang") == null
       //     ? const Language()
       //     : const Login(),

@@ -9,6 +9,7 @@ To Do List:
     General:
         - Translate all the project
         - Improve all app style
+        - convert to material3
     Categories Page:
         - link categories with their products
         - Add more features for the products

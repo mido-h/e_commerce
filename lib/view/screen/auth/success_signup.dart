@@ -46,6 +46,5 @@ class SuccessSignUp extends StatelessWidget {
             ],
           ),
         ));
-    ;
   }
 }

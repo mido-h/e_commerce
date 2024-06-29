@@ -1,8 +1,6 @@
 import 'package:e_commerce/core/class/status_request.dart';
 import 'package:e_commerce/core/constant/routes.dart';
-import 'package:e_commerce/core/functions/handlingdata_controller.dart';
 import 'package:e_commerce/core/services/services.dart';
-import 'package:e_commerce/data/datasource/remote/home_remote.dart';
 import 'package:e_commerce/data/model/items_model.dart';
 import 'package:get/get.dart';
 
@@ -19,6 +17,7 @@ class ItemsControllerImp extends ItemsController {
   // HomeRemote homeRemote = HomeRemote(Get.find());
   List categories = [];
   List items = [];
+  List vesibleitems = [];
   late int selectedCategory;
   late StatusRequest statusRequest;
   // late ItemsModel itemsModel;
@@ -29,10 +28,29 @@ class ItemsControllerImp extends ItemsController {
     selectedCategory = Get.arguments["selected category"];
     categories = Get.arguments["categories"];
     items = Get.arguments["items"];
+    vesibleitems=[];
+
+    for (Map x in items){
+      if (x["item_category"]==selectedCategory) {
+        vesibleitems.add(x);
+      }
+      
+      }    
   }
 
   changeCategory(i) {
     selectedCategory = i;
+    vesibleitems=[];
+
+    for (Map x in items){
+      if (x["item_category"]==selectedCategory) {
+          vesibleitems.add(x);
+      }
+      
+      }    
+    print(vesibleitems);
+    //print(items);
+    print(selectedCategory);
     update();
   }
 
