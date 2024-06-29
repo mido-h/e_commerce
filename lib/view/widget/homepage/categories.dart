@@ -19,7 +19,7 @@ class HomepageCategories extends GetView<HomePageControllerImp> {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  controller.toItems(index);
+                  controller.toItems(index+1);
                 },
                 child: Container(
                   padding: EdgeInsets.all(5),

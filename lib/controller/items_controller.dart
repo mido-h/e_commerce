@@ -39,7 +39,7 @@ class ItemsControllerImp extends ItemsController {
   }
 
   changeCategory(i) {
-    selectedCategory = i;
+    selectedCategory = i+1;
     vesibleitems=[];
 
     for (Map x in items){

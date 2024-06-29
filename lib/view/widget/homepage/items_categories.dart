@@ -25,7 +25,7 @@ class ItemsCategories extends GetView<ItemsControllerImp> {
                       padding: EdgeInsets.all(5),
                       margin: EdgeInsets.only(right: 7),
                       decoration: BoxDecoration(
-                          color: controller.selectedCategory == index
+                          color: controller.selectedCategory == index+1
                               ? Colors.orange[500]
                               : Colors.orange[200],
                           borderRadius: BorderRadius.circular(10)),
