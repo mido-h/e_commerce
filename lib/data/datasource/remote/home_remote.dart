@@ -4,8 +4,9 @@ import 'package:e_commerce/link_api.dart';
 class HomeRemote {
   Crud crud;
   HomeRemote(this.crud);
-  postData() async {
-    var response = await crud.postData(AppLink.homepage, {});
+  postData(String userId) async {
+    var response =
+        await crud.postData(AppLink.homepage, {"user_id": userId.toString()});
     return response.fold((l) => l, (r) => r);
   }
 }

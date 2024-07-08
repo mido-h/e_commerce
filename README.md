@@ -11,7 +11,6 @@ To Do List:
         - Improve all app style
         - convert to material3
     Categories Page:
-        - link categories with their products
         - Add more features for the products
         - Add code for addition and button
     Items page:

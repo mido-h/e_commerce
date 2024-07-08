@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:e_commerce/core/class/status_request.dart';
 import 'package:e_commerce/core/constant/routes.dart';
 import 'package:e_commerce/core/functions/handlingdata_controller.dart';
@@ -14,25 +16,29 @@ abstract class HomePageController extends GetxController {
 class HomePageControllerImp extends HomePageController {
   MyServices myServices = Get.find();
   String? username;
+  int? userId;
   HomeRemote homeRemote = HomeRemote(Get.find());
   List categories = [];
   List items = [];
+  List favorite = [];
   late StatusRequest statusRequest;
 
   @override
   initialData() {
     username = myServices.sharedPreferences.getString("username");
+    userId = myServices.sharedPreferences.getInt("id");
   }
 
   @override
   getData() async {
     statusRequest = StatusRequest.loading;
-    var response = await homeRemote.postData();
+    var response = await homeRemote.postData(userId.toString());
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         categories.addAll(response['categories']);
         items.addAll(response['items']);
+        // favorite.addAll(response['favorite']);
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -46,7 +52,8 @@ class HomePageControllerImp extends HomePageController {
     Get.toNamed(AppRoute.items, arguments: {
       "categories": categories,
       "items": items,
-      "selected category": selectedCategory
+      "selected category": selectedCategory,
+      // "favorite": favorite
     });
   }
 

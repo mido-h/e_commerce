@@ -1,5 +1,5 @@
 class AppLink {
-  static const String server = "http://192.168.1.11/e_commerce";
+  static const String server = "http://192.168.1.4/e_commerce";
   static const String test = "$server/";
   static const String images = "$server/images/";
   static const String imagesCategories = "$server/images/categories/";
@@ -14,4 +14,6 @@ class AppLink {
   static const String resetPassword = "$server/auth/reset_password.php";
   //========================Homepage==================================//
   static const String homepage = "$server/home.php";
+  //========================Favorite==================================//
+  static const String favorite = "$server/favorite/add_delete.php";
 }
